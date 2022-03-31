@@ -17,6 +17,12 @@
 
 `WebViewKit` adds a `WebView` view to SwiftUI, that can be used to load local and online web pages.
 
+<p align="center" style="border-radius: 80px; outline: 4px solid white; outline-offset: -4px">
+    <img src ="Resources/Demo.gif" width="300" />
+</p>
+
+The view can load any url and be configured to fit your needs.
+
 
 ## Supported Platforms
 
