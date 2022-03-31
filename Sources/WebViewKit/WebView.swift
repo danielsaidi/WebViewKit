@@ -6,6 +6,12 @@
 //  Copyright © 2022 Daniel Saidi. All rights reserved.
 //
 
+#if os(iOS)
+typealias WebViewRepresentable = UIViewRepresentable
+#elseif os(macOS)
+typealias WebViewRepresentable = NSViewRepresentable
+#endif
+
 #if os(iOS) || os(macOS)
 import SwiftUI
 import WebKit
