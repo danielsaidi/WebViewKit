@@ -1,4 +1,6 @@
-# WebViewKit
+<p align="center">
+    <img src ="Resources/Logo.png" alt="WebViewKit" title="WebViewKit Logo" width=500 />
+</p>
 
 <p align="center">
     <img src="https://img.shields.io/github/v/release/danielsaidi/WebViewKit?color=%2300550&sort=semver" alt="Version" />
