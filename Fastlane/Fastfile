@@ -1,0 +1,83 @@
+fastlane_version "2.129.0"
+
+default_platform :ios
+
+platform :ios do
+
+
+  # Lint =======================
+  
+  desc "Run SwiftLint"
+  lane :lint do
+    swiftlint(strict: true)
+  end
+
+
+  # Test ===================
+
+  desc "Run unit tests"
+  lane :test do
+    sh("swift test")
+  end
+
+
+  # Docs =======================
+  
+  desc "Build documentation"
+  lane :documentation do
+    sh('cd .. && fastlane/build-documentation.sh')
+  end
+    
+  desc "Build documentation for GitHub pages"
+  lane :documentation_web do
+    sh('cd .. && mkdir -p Docs')
+    sh('cd .. && swift package --allow-writing-to-directory Docs \
+        generate-documentation \
+        --target WebViewKit \
+        --disable-indexing \
+        --transform-for-static-hosting \
+        --hosting-base-path WebViewKit \
+        --output-path Docs/Web')
+  end
+    
+  desc "Preview documentation for GitHub pages"
+  lane :documentation_web_preview do
+    sh('cd .. && mkdir -p Docs')
+    sh('cd .. && swift package --allow-writing-to-directory Docs \
+        preview-documentation \
+        --target WebViewKit \
+        --transform-for-static-hosting \
+        --hosting-base-path WebViewKit \
+        --output-path Docs/Web')
+  end
+  
+  
+  # Version ================
+
+  desc "Create a new version"
+  lane :version do |options|
+    ensure_git_status_clean
+    ensure_git_branch(branch: 'main')
+    
+    lint
+    test
+    documentation
+    
+    bump_type = options[:type]
+    if bump_type == nil or bump_type.empty?
+      bump_type = "patch"
+    end
+
+    version = version_bump_podspec(path: "WebViewKit.podspec", bump_type: bump_type)
+    
+    git_commit(
+      path: "*",
+      message: "Bump to #{version}"
+    )
+  
+    add_git_tag(tag: version)
+    push_git_tags()
+    push_to_git_remote()
+  end
+  
+end
