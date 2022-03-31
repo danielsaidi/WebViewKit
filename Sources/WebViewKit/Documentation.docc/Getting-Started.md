@@ -2,7 +2,14 @@
 
 This article describes how you get started with WebViewKit.
 
-After installing WebViewKit, you can import and start using it in your apps.
+
+## Installation
+
+WebViewKit can be installed with the Swift Package Manager:
+
+```
+https://github.com/danielsaidi/WebViewKit.git
+``` 
 
 
 ## WebView
@@ -34,8 +41,5 @@ WebView(url: url) { view in
     // Configure the view in any way you like
 }
 ```
-
-
-## Conclusion
 
 That's about it. Enjoy browsing the web in SwiftUI!
