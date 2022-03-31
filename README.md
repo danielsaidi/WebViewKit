@@ -72,7 +72,9 @@ The WebViewKit documentation can be viewed [online][Documentation] and can also 
 
 ## Demo Application
 
-WebViewKit doesn't have a demo application yet, but the `WebView` has a preview that shows you how to use the view.
+This project contains a demo app that lets you explore WebViewKit.
+
+To run the demo app, just open and run the `Demo/Demo.xcodeproj` project. It's a universal app project that works for both iOS and macOS. 
 
 
 ## Support
