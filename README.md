@@ -46,7 +46,7 @@ The easiest way to use `WebView` is to just load a static url into it:
 
 ```swift
 import SwiftUI
-import WebView
+import WebViewKit
 
 struct MyView {
 
