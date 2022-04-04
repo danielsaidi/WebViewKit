@@ -40,9 +40,7 @@ https://github.com/danielsaidi/WebViewKit.git
 
 ## Getting started
 
-The library's main view is `WebView`, which can be used to load local and online web pages.
-
-The easiest way to use `WebView` is to just load a static url into it:
+The library's main view is `WebView`, which can be used to present local and online web pages:
 
 ```swift
 import SwiftUI
@@ -60,7 +58,7 @@ struct MyView {
 }
 ```
 
-You can also provide it with a configuration block that configures the wrapped WKWebView:
+You can also provide `WebView` with a configuration block that configures the wrapped WKWebView:
 
 ```swift
 WebView(url: url) { view in
@@ -78,9 +76,7 @@ The WebViewKit documentation can be viewed [online][Documentation] and can also 
 
 ## Demo Application
 
-This project contains a demo app that lets you explore WebViewKit.
-
-To run the demo app, just open and run the `Demo/Demo.xcodeproj` project. It's a universal app project that works for both iOS and macOS. 
+This project contains a demo app that lets you explore WebViewKit on iOS and macOS. To run it, just open and run `Demo/Demo.xcodeproj`.
 
 
 ## Support
