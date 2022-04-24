@@ -31,7 +31,8 @@ platform :ios do
   desc "Build documentation for GitHub pages"
   lane :documentation_web do
     sh('cd .. && mkdir -p Docs')
-    sh('cd .. && swift package --allow-writing-to-directory Docs \
+    sh('cd .. && swift package \
+        --allow-writing-to-directory Docs \
         generate-documentation \
         --target WebViewKit \
         --disable-indexing \
@@ -43,7 +44,8 @@ platform :ios do
   desc "Preview documentation for GitHub pages"
   lane :documentation_web_preview do
     sh('cd .. && mkdir -p Docs')
-    sh('cd .. && swift package --allow-writing-to-directory Docs \
+    sh('cd .. && swift package \
+        --disable-sandbox \
         preview-documentation \
         --target WebViewKit \
         --transform-for-static-hosting \
