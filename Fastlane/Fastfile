@@ -34,7 +34,6 @@ platform :ios do
     sh('cd .. && swift package \
         --allow-writing-to-directory Docs \
         generate-documentation \
-        --target WebViewKit \
         --disable-indexing \
         --transform-for-static-hosting \
         --hosting-base-path WebViewKit \
@@ -47,7 +46,6 @@ platform :ios do
     sh('cd .. && swift package \
         --disable-sandbox \
         preview-documentation \
-        --target WebViewKit \
         --transform-for-static-hosting \
         --hosting-base-path WebViewKit \
         --output-path Docs/Web')

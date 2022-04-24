@@ -20,8 +20,9 @@ import WebKit
  This view wraps a `WKWebView` and can be used to load local
  and online web pages.
  
- When you create this view, you can provide it with a custom
- configuration that can be used to configure the `WKWebView`.
+ When you create this view, you can either provide it with a
+ url, or an optional url and a configuration block, that can
+ be used to configure the `WKWebView`.
  */
 public struct WebView: WebViewRepresentable {
     
@@ -41,19 +42,18 @@ public struct WebView: WebViewRepresentable {
     
     /**
      Create a web view that loads the provided url after the
-     provided configuration has been applied to the view.
+     provided configuration has been applied.
      
-     The url and the configuration are both optional. If the
-     url is `nil` you must manually load a url into the view
-     in the configuration block.
+     If the `url` is `nil` you must manually load a url into
+     the view in the configuration block.
      
      - Parameters:
        - url: The url of the page to load into the web view, if any.
        - configuration: The configuration block to apply to the web view, if any.
      */
     public init(
-        url: URL?,
-        configuration: @escaping (WKWebView) -> Void = { _ in }) {
+        url: URL? = nil,
+        configuration: @escaping (WKWebView) -> Void) {
         self.url = url
         self.configuration = configuration
     }
