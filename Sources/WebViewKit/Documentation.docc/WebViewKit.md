@@ -24,9 +24,7 @@ https://github.com/danielsaidi/WebViewKit.git
 
 ## About this documentation
 
-While the documentation can be built for both iOS and macOS, the online version is currently built for macOS. This means that it's macOS-specific and lacks iOS-specific types like `SafariWebView`.
-
-To create an iOS-specific documentation, open the package in Xcode, select an iOS Simulator then generate documentation from the `Product` menu.
+Note that the online documentation is currently built for macOS. To generate documentation for another platform, open the package in Xcode, select the correct simulator then generate documentation from the `Product` menu.
 
 Any help in making the documentation multi-platform would be greatly appreciated.
 

@@ -40,39 +40,17 @@ https://github.com/danielsaidi/WebViewKit.git
 
 ## Getting started
 
-The library's main view is `WebView`, which can be used to present local and online web pages:
-
-```swift
-import SwiftUI
-import WebViewKit
-
-struct MyView {
-
-    var body: some View {
-        if let url = URL(string: "https://danielsaidi.com") {
-            WebView(url: url)
-        } else {
-            Text("Invalid url")
-        }
-    }
-}
-```
-
-You can also provide `WebView` with a configuration block that configures the wrapped WKWebView:
-
-```swift
-WebView(url: url) { view in
-    // Configure the view in any way you like
-}
-```
-
-...and that's about it. Enjoy browsing the web in SwiftUI!
+To get started with WebViewKit, have a look at [this getting started guide][GettingStarted].
 
 
 ## Documentation
 
-The WebViewKit documentation can be viewed [online][Documentation] and can also be built it directly from Xcode, using `Product/Build Documentation`.
-  
+The [online documentation][Documentation] contains more information, code examples etc. and makes it easy to overview the various parts of the library.
+
+Note that the online documentation is currently built for macOS. To generate documentation for another platform, open the package in Xcode, select the correct simulator then generate documentation from the `Product` menu.
+
+Any help in making the documentation multi-platform would be greatly appreciated. 
+
 
 ## Demo Application
 
@@ -105,4 +83,5 @@ WebViewKit is available under the MIT license. See the [LICENSE][License] file f
 [Sponsors]: https://github.com/sponsors/danielsaidi
 
 [Documentation]: https://danielsaidi.github.io/WebViewKit/documentation/webviewkit/
+[GettingStarted]: https://github.com/danielsaidi/WebViewKit/blob/main/Readmes/Getting-Started.md
 [License]: https://github.com/danielsaidi/WebViewKit/blob/master/LICENSE
