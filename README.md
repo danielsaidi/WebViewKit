@@ -15,7 +15,7 @@
 
 ## About WebViewKit
 
-`WebViewKit` adds a `WebView` view to SwiftUI, that can be used to load local and online web pages.
+WebViewKit adds a `WebView` view to SwiftUI, that can be used to load local and online web pages.
 
 <p align="center" style="border-radius: 80px; outline: 4px solid white; outline-offset: -4px">
     <img src ="Resources/Demo.gif" width="300" />
@@ -24,9 +24,11 @@
 The view can load any url and be configured to fit your needs.
 
 
+
 ## Supported Platforms
 
-`WebViewKit` supports `iOS 13` and `macOS 11`.
+WebViewKit supports `iOS 13` and `macOS 11`.
+
 
 
 ## Installation
@@ -38,18 +40,19 @@ https://github.com/danielsaidi/WebViewKit.git
 ```
 
 
+
 ## Getting started
 
 To get started with WebViewKit, have a look at [this getting started guide][GettingStarted].
+
 
 
 ## Documentation
 
 The [online documentation][Documentation] contains more information, code examples etc. and makes it easy to overview the various parts of the library.
 
-Note that the online documentation is currently built for macOS. To generate documentation for another platform, open the package in Xcode, select the correct simulator then generate documentation from the `Product` menu.
+The online documentation is currently iOS only. To generate documentation for other platforms, open the package in Xcode, select a simulator then run `Product/Build Documentation`. 
 
-Any help in making the documentation multi-platform would be greatly appreciated. 
 
 
 ## Demo Application
@@ -57,9 +60,11 @@ Any help in making the documentation multi-platform would be greatly appreciated
 This project contains a demo app that lets you explore WebViewKit on iOS and macOS. To run it, just open and run `Demo/Demo.xcodeproj`.
 
 
+
 ## Support
 
 You can sponsor this project on [GitHub Sponsors][Sponsors] or get in touch for paid support. 
+
 
 
 ## Contact
