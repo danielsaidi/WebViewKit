@@ -21,7 +21,7 @@ WebViewKit adds a `WebView`  view to SwiftUI, that can be used to embed local an
     <img src ="Resources/Demo.gif" width="300" />
 </p>
 
-The view can load any url and be configured to fit your needs.
+The `WebView` view can load any url and be fully configured to fit your needs. For more basic needs, you have a `SafariWebView` as well.
 
 
 
