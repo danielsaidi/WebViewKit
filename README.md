@@ -1,5 +1,5 @@
 <p align="center">
-    <img src ="Resources/Logo.png" alt="WebViewKit" title="WebViewKit Logo" width=500 />
+    <img src ="Resources/Logo.png" alt="WebViewKit" title="WebViewKit Logo" width=600 />
 </p>
 
 <p align="center">

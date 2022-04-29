@@ -44,7 +44,7 @@ platform :ios do
   end
 
 
-    # Docs =======================
+  # Docs =======================
   
   desc "Build documentation for all platforms"
   lane :docc do
