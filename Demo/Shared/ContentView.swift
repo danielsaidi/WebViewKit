@@ -12,10 +12,10 @@ import WebViewKit
 struct ContentView: View {
     
     // Never force unwrap in real-world apps, kids!
-    let url = URL(string: "https://danielsaidi.com")!
+    let url = URL(string: "https://danielsaidi.com")
     
     var body: some View {
-        safariWebView
+        webView
             .ignoresSafeArea()
     }
 }
@@ -23,9 +23,14 @@ struct ContentView: View {
 private extension ContentView {
     
     #if os(iOS)
+    @ViewBuilder
     var safariWebView: some View {
-        SafariWebView(url: url) { controller in
-            // Configure the controller in any way you like
+        if let url = url {
+            SafariWebView(url: url) { controller in
+                // Configure the controller in any way you like
+            }
+        } else {
+            Text("URL is nil")
         }
     }
     #endif

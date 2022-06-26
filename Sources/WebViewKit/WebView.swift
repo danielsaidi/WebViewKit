@@ -30,22 +30,12 @@ public struct WebView: WebViewRepresentable {
     // MARK: - Initializers
     
     /**
-     Create a web view that loads the provided url.
-     
-     - Parameters:
-       - url: The url of the page to load into the web view.
-     */
-    public init(url: URL) {
-        self.url = url
-        self.configuration = { _ in }
-    }
-    
-    /**
      Create a web view that loads the provided url after the
      provided configuration has been applied.
      
-     If the `url` is `nil` you must manually load a url into
-     the view in the configuration block.
+     If the `url` parameter is `nil`, you must manually load
+     a url in the configuration block. If you don't, the web
+     view will not present any content.
      
      - Parameters:
        - url: The url of the page to load into the web view, if any.
@@ -53,7 +43,7 @@ public struct WebView: WebViewRepresentable {
      */
     public init(
         url: URL? = nil,
-        configuration: @escaping (WKWebView) -> Void) {
+        configuration: @escaping (WKWebView) -> Void = { _ in }) {
         self.url = url
         self.configuration = configuration
     }

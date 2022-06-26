@@ -1,6 +1,14 @@
 # Release notes
 
 
+## 0.2.1
+
+### ✨ New features
+
+* `WebView` now supports providing an empty url and no config block.
+
+
+
 ## 0.2
 
 This version adds a new `SafariWebView`.
