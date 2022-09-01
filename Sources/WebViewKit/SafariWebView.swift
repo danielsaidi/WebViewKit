@@ -22,6 +22,7 @@ import SafariServices
  Safari config and an optional controller configuration that
  can be used to configure the created controller instance.
  */
+
 public struct SafariWebView: UIViewControllerRepresentable {
     
     /**

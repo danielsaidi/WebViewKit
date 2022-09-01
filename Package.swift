@@ -13,9 +13,7 @@ let package = Package(
             name: "WebViewKit",
             targets: ["WebViewKit"]),
     ],
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0")
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "WebViewKit",
