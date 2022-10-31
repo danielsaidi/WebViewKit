@@ -10,9 +10,8 @@ import SwiftUI
 import WebViewKit
 
 struct ContentView: View {
-    
-    // Never force unwrap in real-world apps, kids!
-    let url = URL(string: "https://danielsaidi.com")
+
+    let url = URL(string: "https://gs.statcounter.com/detect")
     
     var body: some View {
         webView
@@ -38,6 +37,8 @@ private extension ContentView {
     var webView: some View {
         WebView(url: url) { webView in
             // Configure the web view in any way you like
+            // For instance, let's set a custom user agent.
+            webView.customUserAgent = "foo bar"
         }
     }
 }
