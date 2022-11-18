@@ -39,20 +39,24 @@ public struct WebView: WebViewRepresentable {
      
      - Parameters:
        - url: The url of the page to load into the web view, if any.
-       - configuration: The configuration block to apply to the web view, if any.
+       - configuration: WKWebViewConfiguration to apply to the web view, if any.
+       - webView: The configuration block to apply to the web view, if any.
      */
     public init(
         url: URL? = nil,
-        configuration: @escaping (WKWebView) -> Void = { _ in }) {
+        configuration: WKWebViewConfiguration? = nil,
+        webView: @escaping (WKWebView) -> Void = { _ in }) {
         self.url = url
         self.configuration = configuration
+        self.webView = webView
     }
     
     
     // MARK: - Properties
     
     private let url: URL?
-    private let configuration: (WKWebView) -> Void
+    private let configuration: WKWebViewConfiguration?
+    private let webView: (WKWebView) -> Void
     
     
     // MARK: - Functions
@@ -75,10 +79,15 @@ public struct WebView: WebViewRepresentable {
 }
 
 private extension WebView {
+
+    func makeWebView() -> WKWebView {
+        guard let configuration = self.configuration else { return WKWebView() }
+        return WKWebView(frame: .zero, configuration: configuration)
+    }
     
     func makeView() -> WKWebView {
-        let view = WKWebView()
-        configuration(view)
+        let view = makeWebView()
+        webView(view)
         tryLoad(url, into: view)
         return view
     }
