@@ -12,12 +12,6 @@ The `WebView` view can load any url and be fully configured to fit your needs. F
 
 
 
-## Supported Platforms
-
-WebViewKit supports `iOS 13` and `macOS 11`.
-
-
-
 ## Installation
 
 WebViewKit can be installed with the Swift Package Manager:
@@ -26,7 +20,13 @@ WebViewKit can be installed with the Swift Package Manager:
 https://github.com/danielsaidi/WebViewKit.git
 ```
 
-You can also clone the repository and build the library locally.
+If you prefer to not have external dependencies, you can also just copy the source code into your app.
+
+
+
+## Supported Platforms
+
+WebViewKit supports `iOS 13` and `macOS 11`.
 
 
 

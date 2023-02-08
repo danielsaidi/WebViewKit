@@ -16,7 +16,7 @@ https://github.com/danielsaidi/WebViewKit.git
 
 The library's main view is ``WebView``, which can be used to load local and online web pages.
 
-The easiest way to use the view is to just load a static url into it:
+The easiest way to use the view is to just load a url into it:
 
 ```swift
 import SwiftUI
@@ -24,17 +24,15 @@ import WebViewKit
 
 struct MyView {
 
+    let url = URL(string: "https://danielsaidi.com")
+
     var body: some View {
-        if let url = URL(string: "https://danielsaidi.com") {
-            WebView(url: url)
-        } else {
-            Text("Invalid url")
-        }
+        WebView(url: url)
     }
 }
 ```
 
-You can also provide it with an optional url and a configuration block that can be used to configures the created `WKWebView`:
+You can also provide it with a configuration block that can be used to configure the created `WKWebView`:
 
 ```swift
 WebView(url: url) { view in
@@ -42,7 +40,7 @@ WebView(url: url) { view in
 }
 ```
 
-The url, if any, will be loaded after the configuration block has been applied. You can also perform any url loading in the configuration block.
+The url, if any, will be loaded after the configuration has been applied. You can also perform any url loading in the configuration block.
 
 
 ## SafariWebView
