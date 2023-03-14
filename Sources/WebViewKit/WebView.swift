@@ -21,8 +21,57 @@ import WebKit
  and online web pages.
  
  When you create this view, you can either provide it with a
- url, or an optional url and a configuration block, that can
- be used to configure the `WKWebView`.
+ url, or an optional url and a view configuration block that
+ can be used to configure the created `WKWebView`.
+
+ You can also provide a custom `WKWebViewConfiguration` that
+ can be used when initializing the `WKWebView` instance.
+
+ To conclude, setting up a `WebView` can be as easy as this:
+
+ ```swift
+ struct ContentView: View {
+
+     private let url = URL(string: "https://apple.com")
+
+     var body: some View {
+         WebView(url: url)
+     }
+ }
+ ```
+
+ And as complex as this:
+
+ ```swift
+ struct ContentView: View {
+
+     private let url = URL(string: "https://apple.com")
+
+     var body: some View {
+         WebView(url: url, configuration: configuration) { webView in
+             webView.customUserAgent = "foo bar"
+         }
+     }
+
+     // Example of WKWebViewConfiguration
+     var configuration: WKWebViewConfiguration {
+         let disableSelectionScriptString = "document.documentElement.style.webkitUserSelect='none';"
+         let disableSelectionScript = WKUserScript(source: disableSelectionScriptString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+         let disableCalloutScriptString = "document.documentElement.style.webkitTouchCallout='none';"
+         let disableCalloutScript = WKUserScript(source: disableCalloutScriptString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+
+         let userContentController = WKUserContentController()
+         userContentController.addUserScript(disableSelectionScript)
+         userContentController.addUserScript(disableCalloutScript)
+
+         let configuration = WKWebViewConfiguration()
+         configuration.userContentController = userContentController
+         configuration.ignoresViewportScaleLimits = false
+
+         return configuration
+     }
+ }
+ ```
  */
 public struct WebView: WebViewRepresentable {
     
@@ -39,24 +88,24 @@ public struct WebView: WebViewRepresentable {
      
      - Parameters:
        - url: The url of the page to load into the web view, if any.
-       - configuration: WKWebViewConfiguration to apply to the web view, if any.
-       - webView: The configuration block to apply to the web view, if any.
+       - webConfiguration: The WKWebViewConfiguration to apply to the web view, if any.
+       - webView: The custom configuration block to apply to the web view, if any.
      */
     public init(
         url: URL? = nil,
-        configuration: WKWebViewConfiguration? = nil,
-        webView: @escaping (WKWebView) -> Void = { _ in }) {
+        webConfiguration: WKWebViewConfiguration? = nil,
+        viewConfiguration: @escaping (WKWebView) -> Void = { _ in }) {
         self.url = url
-        self.configuration = configuration
-        self.webView = webView
+        self.webConfiguration = webConfiguration
+        self.viewConfiguration = viewConfiguration
     }
     
     
     // MARK: - Properties
     
     private let url: URL?
-    private let configuration: WKWebViewConfiguration?
-    private let webView: (WKWebView) -> Void
+    private let webConfiguration: WKWebViewConfiguration?
+    private let viewConfiguration: (WKWebView) -> Void
     
     
     // MARK: - Functions
@@ -81,13 +130,13 @@ public struct WebView: WebViewRepresentable {
 private extension WebView {
 
     func makeWebView() -> WKWebView {
-        guard let configuration = self.configuration else { return WKWebView() }
+        guard let configuration = webConfiguration else { return WKWebView() }
         return WKWebView(frame: .zero, configuration: configuration)
     }
     
     func makeView() -> WKWebView {
         let view = makeWebView()
-        webView(view)
+        viewConfiguration(view)
         tryLoad(url, into: view)
         return view
     }
