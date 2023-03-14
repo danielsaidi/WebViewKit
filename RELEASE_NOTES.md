@@ -1,6 +1,14 @@
 # Release notes
 
 
+## 0.2.2
+
+### ✨ New features
+
+* `WebView` now supports providing a `WKWebViewConfiguration`.
+
+
+
 ## 0.2.1
 
 ### ✨ New features
