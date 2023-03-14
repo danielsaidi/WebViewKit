@@ -11,11 +11,12 @@ import WebViewKit
 
 struct ContentView: View {
 
-    let url = URL(string: "https://gs.statcounter.com/detect")
+    let url = URL(string: "https://apple.com")
     
     var body: some View {
-        webView
-            .ignoresSafeArea()
+        NavigationView {
+            webView.ignoresSafeArea(edges: .bottom)
+        }
     }
 }
 
