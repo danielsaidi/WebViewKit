@@ -56,9 +56,15 @@ import WebKit
      // Example of WKWebViewConfiguration
      var configuration: WKWebViewConfiguration {
          let disableSelectionScriptString = "document.documentElement.style.webkitUserSelect='none';"
-         let disableSelectionScript = WKUserScript(source: disableSelectionScriptString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+         let disableSelectionScript = WKUserScript(
+             source: disableSelectionScriptString,
+             injectionTime: .atDocumentEnd,
+             forMainFrameOnly: true)
          let disableCalloutScriptString = "document.documentElement.style.webkitTouchCallout='none';"
-         let disableCalloutScript = WKUserScript(source: disableCalloutScriptString, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+         let disableCalloutScript = WKUserScript(
+             source: disableCalloutScriptString,
+             injectionTime: .atDocumentEnd,
+             forMainFrameOnly: true)
 
          let userContentController = WKUserContentController()
          userContentController.addUserScript(disableSelectionScript)
