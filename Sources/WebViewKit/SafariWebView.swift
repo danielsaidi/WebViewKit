@@ -36,7 +36,8 @@ public struct SafariWebView: UIViewControllerRepresentable {
     public init(
         url: URL,
         configuration: SFSafariViewController.Configuration = .init(),
-        controllerConfiguration: @escaping (SFSafariViewController) -> Void = { _ in }) {
+        controllerConfiguration: @escaping (SFSafariViewController) -> Void = { _ in }
+    ) {
         self.url = url
         self.configuration = configuration
         self.controllerConfiguration = controllerConfiguration

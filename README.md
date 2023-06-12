@@ -7,14 +7,18 @@
     <img src="https://img.shields.io/badge/Swift-5.6-orange.svg" alt="Swift 5.6" title="Version" />
     <img src="https://img.shields.io/badge/platform-SwiftUI-blue.svg" alt="Swift UI" title="Swift UI" />
     <img src="https://img.shields.io/github/license/danielsaidi/WebViewKit" alt="MIT License" title="MIT License" />
-    <img src="https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fdanielsaidi" alt="Twitter: @danielsaidi" title="Twitter: @danielsaidi" />
-    <img src="https://img.shields.io/mastodon/follow/000253346?label=mastodon&style=social" alt="Mastodon: @danielsaidi@mastodon.social" title="Mastodon: @danielsaidi@mastodon.social" />
+        <a href="https://twitter.com/danielsaidi">
+        <img src="https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fdanielsaidi" alt="Twitter: @danielsaidi" title="Twitter: @danielsaidi" />
+    </a>
+    <a href="https://mastodon.social/@danielsaidi">
+        <img src="https://img.shields.io/mastodon/follow/000253346?label=mastodon&style=social" alt="Mastodon: @danielsaidi@mastodon.social" title="Mastodon: @danielsaidi@mastodon.social" />
+    </a>
 </p>
 
 
 ## About WebViewKit
 
-WebViewKit adds a SwiftUI `WebView` that can be used to embed local and online web sites in your SwiftUI apps. 
+WebViewKit adds a `WebView` to `SwiftUI`, that can be used to display web sites in your app. 
 
 The result can look like this and can also be presented in sheets, full screen covers etc.:
 
@@ -22,7 +26,9 @@ The result can look like this and can also be presented in sheets, full screen c
     <img src ="Resources/Demo.gif" width="300" />
 </p>
 
-The `WebView` view can load any url and be fully configured to fit your needs. For more basic needs, you have a `SafariWebView` as well.
+The ``WebView`` view can load any url and be fully configured to fit your needs. For more basic needs, you have a ``SafariWebView`` as well.
+
+WebViewKit supports `iOS 13` and `macOS 11`.
 
 
 
@@ -38,17 +44,11 @@ If you prefer to not have external dependencies, you can also just copy the sour
 
 
 
-## Supported Platforms
-
-WebViewKit supports `iOS 13` and `macOS 11`.
-
-
-
 ## Getting started
 
 The [online documentation][Documentation] has a [getting started guide][Getting-Started] guide to help you get started with WebViewKit.
 
-The library's main view is ``WebView``, which can be used to load local and online web pages:
+The library's main view is ``WebView``, which can be used to display any web page.
 
 ```swift
 import SwiftUI
@@ -64,7 +64,15 @@ struct MyView {
 }
 ```
 
-You can also provide it with a configuration block that can be used to configure the created `WKWebView`.
+The URL can point to any regular web site URLs, as above, but also to local web pages in your app bundle:
+
+```swift
+let localUrl = Bundle.main.url(forResource: "about", withExtension: "html")
+```
+
+The library also contains an iOS only ``SafariWebView``, which can load the same kind of content as the ``WebView``.
+
+Unlike ``WebView``, ``SafariWebView`` is pretty basic, but adds a topmost navigation bar and a bottommost toolbar with buttons for additional convenience.
 
 For more information, please see the [online documentation][Documentation] and [getting started guide][Getting-Started].
 
@@ -82,9 +90,11 @@ The demo app lets you explore the library on iOS and macOS. To try it out, just 
 
 
 
-## Support
+## Support this library
 
-You can sponsor this project on [GitHub Sponsors][Sponsors] or get in touch for paid support. 
+I manage my various open-source projects in my free time and am really thankful for any help I can get from the community. 
+
+You can sponsor this project on [GitHub Sponsors][Sponsors] or get in touch for paid support.
 
 
 

@@ -17,8 +17,8 @@ import SwiftUI
 import WebKit
 
 /**
- This view wraps a `WKWebView` and can be used to load local
- and online web pages.
+ This view wraps a `WKWebView` and can be used to load a URL
+ that refers to both remote or local web pages.
  
  When you create this view, you can either provide it with a
  url, or an optional url and a view configuration block that
@@ -26,58 +26,6 @@ import WebKit
 
  You can also provide a custom `WKWebViewConfiguration` that
  can be used when initializing the `WKWebView` instance.
-
- To conclude, setting up a `WebView` can be as easy as this:
-
- ```swift
- struct ContentView: View {
-
-     private let url = URL(string: "https://apple.com")
-
-     var body: some View {
-         WebView(url: url)
-     }
- }
- ```
-
- And as complex as this:
-
- ```swift
- struct ContentView: View {
-
-     private let url = URL(string: "https://apple.com")
-
-     var body: some View {
-         WebView(url: url, configuration: configuration) { webView in
-             webView.customUserAgent = "foo bar"
-         }
-     }
-
-     // Example of WKWebViewConfiguration
-     var configuration: WKWebViewConfiguration {
-         let disableSelectionScriptString = "document.documentElement.style.webkitUserSelect='none';"
-         let disableSelectionScript = WKUserScript(
-             source: disableSelectionScriptString,
-             injectionTime: .atDocumentEnd,
-             forMainFrameOnly: true)
-         let disableCalloutScriptString = "document.documentElement.style.webkitTouchCallout='none';"
-         let disableCalloutScript = WKUserScript(
-             source: disableCalloutScriptString,
-             injectionTime: .atDocumentEnd,
-             forMainFrameOnly: true)
-
-         let userContentController = WKUserContentController()
-         userContentController.addUserScript(disableSelectionScript)
-         userContentController.addUserScript(disableCalloutScript)
-
-         let configuration = WKWebViewConfiguration()
-         configuration.userContentController = userContentController
-         configuration.ignoresViewportScaleLimits = false
-
-         return configuration
-     }
- }
- ```
  */
 public struct WebView: WebViewRepresentable {
     
