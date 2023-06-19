@@ -14,9 +14,13 @@ struct ContentView: View {
     let url = URL(string: "https://apple.com")
     
     var body: some View {
+        #if os(iOS)
         NavigationView {
             webView.ignoresSafeArea(edges: .bottom)
         }
+        #else
+        webView
+        #endif
     }
 }
 
