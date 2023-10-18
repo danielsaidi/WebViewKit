@@ -48,7 +48,9 @@ If you prefer to not have external dependencies, you can also just copy the sour
 
 The [online documentation][Documentation] has a [getting started guide][Getting-Started] guide to help you get started with WebViewKit.
 
-The library's main view is ``WebView``, which can be used to display any web page.
+The library's main view is ``WebView``, which can display web pages and HTML content.
+
+The easiest way to use this view is to just load a url into it:
 
 ```swift
 import SwiftUI
@@ -56,23 +58,22 @@ import WebViewKit
 
 struct MyView {
 
-    let url = URL(string: "https://danielsaidi.com")
-
     var body: some View {
-        WebView(url: url)
+        WebView(urlString: "https://danielsaidi.com")
     }
 }
 ```
 
-The URL can point to any regular web site URLs, as above, but also to local web pages in your app bundle:
+The URL can point to any global URL, as above, but also to files in any bundle:
 
 ```swift
 let localUrl = Bundle.main.url(forResource: "about", withExtension: "html")
-```
+let view = WebView(url: localUrl)
+``` 
 
-The library also contains an iOS only ``SafariWebView``, which can load the same kind of content as the ``WebView``.
+You can load a custom HTML string into the web view, provide custom configurations, etc.
 
-Unlike ``WebView``, ``SafariWebView`` is pretty basic, but adds a topmost navigation bar and a bottommost toolbar with buttons for additional convenience.
+The library also contains an iOS only ``SafariWebView``, which can load the same kind of content as the ``WebView``. It's basic compared to ``WebView``, but adds a topmost navigation bar and a bottommost toolbar with buttons for additional convenience.
 
 For more information, please see the [online documentation][Documentation] and [getting started guide][Getting-Started].
 

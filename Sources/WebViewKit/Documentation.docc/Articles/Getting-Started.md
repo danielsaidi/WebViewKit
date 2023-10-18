@@ -14,9 +14,9 @@ https://github.com/danielsaidi/WebViewKit.git
 
 ## WebView
 
-The library's main view is ``WebView``, which can be used to display any web page based on a URL.
+The library's main view is ``WebView``, which can display web pages and HTML content.
 
-The easiest way to use the view is to just load a url into it:
+The easiest way to use this view is to just load a url into it:
 
 ```swift
 import SwiftUI
@@ -24,39 +24,45 @@ import WebViewKit
 
 struct MyView {
 
-    let url = URL(string: "https://danielsaidi.com")
-
     var body: some View {
-        WebView(url: url)
+        WebView(urlString: "https://danielsaidi.com")
     }
 }
 ```
 
-The URL can point to any regular web site URLs, as above, but also to local web pages in your app bundle:
+The URL can point to any global URL, as above, but also to files in any bundle:
 
 ```swift
 let localUrl = Bundle.main.url(forResource: "about", withExtension: "html")
+let view = WebView(url: localUrl)
 ``` 
 
-You can also provide it with a configuration block that can be used to configure the `WKWebView`:
+You can load a custom HTML string into the web view, to render custom content:
 
 ```swift
-WebView(url: url) { view in
+WebView(htmlString: "<html><body>Hello, world!</body></html>")
+``` 
+
+You can also provide the view with a `WKWebViewConfiguration`, as well as a view configuration block:
+
+```swift
+WebView(
+    url: url,
+    configuration: .init(...)
+) { webView in
     // Configure the view in any way you like
 }
 ```
 
-The url, if any, will be loaded after the configuration has been applied. 
+The url or HTML, if any, will be loaded after the configuration has been applied. 
 
 All in all, setting up a `WebView` can be as easy as this:
 
 ```swift
 struct ContentView: View {
 
-    private let url = URL(string: "https://apple.com")
-
     var body: some View {
-        WebView(url: url)
+        WebView(urlString: "https://apple.com")
     }
 }
 ```
