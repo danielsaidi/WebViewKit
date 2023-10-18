@@ -1,6 +1,14 @@
 # Release notes
 
 
+## 0.3
+
+### ✨ New features
+
+* `WebView` can now be created with an `htmlString` and a `urlString`.
+
+
+
 ## 0.2.2
 
 ### ✨ New features
