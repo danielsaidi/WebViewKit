@@ -19,7 +19,7 @@
 
 ## About WebViewKit
 
-WebViewKit is a Swift SDK that adds a `WebView` to `SwiftUI`.
+WebViewKit is a Swift SDK that adds a `WebView` and a `SafariWebView` to `SwiftUI`.
 
 The web view can be used to display web sites in your apps, for instance like this:
 
