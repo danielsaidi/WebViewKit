@@ -3,10 +3,10 @@
 //  WebViewKit
 //
 //  Created by Daniel Saidi on 2020-12-29.
-//  Copyright © 2022 Daniel Saidi. All rights reserved.
+//  Copyright © 2022-2024 Daniel Saidi. All rights reserved.
 //
 
-#if os(iOS)
+#if os(iOS) || os(visionOS)
 import SwiftUI
 import SafariServices
 
@@ -25,41 +25,46 @@ import SafariServices
 
 public struct SafariWebView: UIViewControllerRepresentable {
     
-    /**
-     Create a web view that loads the provided url.
-     
-     - Parameters:
-       - url: The url of the page to load into the web view.
-       - configuration: The configuration to apply when creating the view.
-       - controllerConfiguration: The configuration to apply to the created view.
-     */
+    /// Create a Safari web view.
+    ///
+    /// - Parameters:
+    ///   - url: The URL to load into the web view.
+    ///   - configuration: The configuration to apply, if any.
+    ///   - viewConfig: The configuration to apply, if any.
     public init(
         url: URL,
         configuration: SFSafariViewController.Configuration = .init(),
-        controllerConfiguration: @escaping (SFSafariViewController) -> Void = { _ in }
+        viewConfig: @escaping (SFSafariViewController) -> Void = { _ in }
     ) {
         self.url = url
         self.configuration = configuration
-        self.controllerConfiguration = controllerConfiguration
+        self.viewConfig = viewConfig
     }
     
     private let url: URL
     private let configuration: SFSafariViewController.Configuration
-    private let controllerConfiguration: (SFSafariViewController) -> Void
+    private let viewConfig: (SFSafariViewController) -> Void
 
-    public func makeUIViewController(context: Context) -> SFSafariViewController {
-        let controller = SFSafariViewController(url: url, configuration: configuration)
-        controllerConfiguration(controller)
+    public func makeUIViewController(
+        context: Context
+    ) -> SFSafariViewController {
+        let controller = SFSafariViewController(
+            url: url,
+            configuration: configuration
+        )
+        viewConfig(controller)
         return controller
     }
 
-    public func updateUIViewController(_ safariViewController: SFSafariViewController, context: Context) {}
+    public func updateUIViewController(
+        _ safariViewController: SFSafariViewController,
+        context: Context
+    ) {}
 }
 
-struct SafariWebView_Previews: PreviewProvider {
+#Preview {
     
-    static var previews: some View {
-        SafariWebView(url: URL(string: "https://danielsaidi.com")!)
-    }
+    SafariWebView(url: URL(string: "https://danielsaidi.com")!)
+        .ignoresSafeArea()
 }
 #endif

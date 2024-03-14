@@ -1,22 +1,22 @@
 # Getting Started
 
-This article describes how you get started with WebViewKit.
+This article describes how to get started with WebViewKit.
 
+@Metadata {
 
-## Installation
+    @PageImage(
+        purpose: card,
+        source: "Page",
+        alt: "Page icon"
+    )
 
-WebViewKit can be installed with the Swift Package Manager:
-
-```
-https://github.com/danielsaidi/WebViewKit.git
-``` 
+    @PageColor(blue)
+} 
 
 
 ## WebView
 
-The library's main view is ``WebView``, which can display web pages and HTML content.
-
-The easiest way to use this view is to just load a url into it:
+The library's main view is ``WebView``, which can be used to render any web page URL:
 
 ```swift
 import SwiftUI
@@ -30,33 +30,24 @@ struct MyView {
 }
 ```
 
-The URL can point to any global URL, as above, but also to files in any bundle:
+The URL can point to any regular web site, but also to local web pages in your app bundle:
 
 ```swift
 let localUrl = Bundle.main.url(forResource: "about", withExtension: "html")
-let view = WebView(url: localUrl)
 ``` 
 
-You can load a custom HTML string into the web view, to render custom content:
-
-```swift
-WebView(htmlString: "<html><body>Hello, world!</body></html>")
-``` 
-
-You can also provide the view with a `WKWebViewConfiguration`, as well as a view configuration block:
+You can also provide a custom `WKWebViewConfiguration` and a view configuration function that can configure the `WKWebView`:
 
 ```swift
 WebView(
     url: url,
-    configuration: .init(...)
+    config: ... // Pass in a WKWebViewConfiguration here
 ) { webView in
-    // Configure the view in any way you like
+    // Configure the view here
 }
 ```
 
-The url or HTML, if any, will be loaded after the configuration has been applied. 
-
-All in all, setting up a `WebView` can be as easy as this:
+All in all, setting up a ``WebView`` can be as easy as this:
 
 ```swift
 struct ContentView: View {
@@ -67,7 +58,7 @@ struct ContentView: View {
 }
 ```
 
-And as complex as this:
+and as complex as this:
 
 ```swift
 struct ContentView: View {
@@ -106,16 +97,12 @@ struct ContentView: View {
 }
 ```
 
-You can also perform any url loading in the configuration block.
+If you provide a nil initializer `url`, you must load a url into the `WKWebView` in the view configuration, for the view to load a web page.
 
 
 ## SafariWebView
 
-The library also contains an iOS only ``SafariWebView``, which can load the same kind of content as the ``WebView``.
-
-Unlike ``WebView``, ``SafariWebView`` is pretty basic, but adds a topmost navigation bar and a bottommost toolbar with buttons for additional convenience.
-
-The easiest way to use the view is to just load a static url into it:
+WebViewKit also has a ``SafariWebView``, which can load the same content as ``WebView``:
 
 ```swift
 import SwiftUI
@@ -133,7 +120,7 @@ struct MyView {
 }
 ```
 
-You can also provide it with an optional url, a `configuration` and a `controllerConfiguration`:
+You can provide a custom `SFSafariViewController.Configuration` and a view configuration function that can configure the `SFSafariViewController`:
 
 ```swift
 SafariWebView(
@@ -144,9 +131,4 @@ SafariWebView(
 }
 ```
 
-The `configuration` parameter will be used when creating the `SFSafariController` and `controllerConfiguration` to configure the created controller instance.    
-
-
-## Conclusion
-
-That's about it. Enjoy browsing the web in SwiftUI!
+``SafariWebView`` is less configurable than ``WebView``, but adds a top and bottom toolbar that can dismiss the view, resize it, navigate back and forward, share the current URL, etc.

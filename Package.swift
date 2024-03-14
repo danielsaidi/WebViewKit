@@ -1,25 +1,29 @@
-// swift-tools-version: 5.6
+// swift-tools-version: 5.9
 
 import PackageDescription
 
 let package = Package(
     name: "WebViewKit",
     platforms: [
-        .iOS(.v13),
-        .macOS(.v11)
+        .iOS(.v14),
+        .macOS(.v11),
+        .visionOS(.v1)
     ],
     products: [
         .library(
             name: "WebViewKit",
-            targets: ["WebViewKit"]),
+            targets: ["WebViewKit"]
+        )
     ],
     dependencies: [],
     targets: [
         .target(
             name: "WebViewKit",
-            dependencies: []),
+            dependencies: []
+        ),
         .testTarget(
             name: "WebViewKitTests",
-            dependencies: ["WebViewKit"]),
+            dependencies: ["WebViewKit"]
+        )
     ]
 )

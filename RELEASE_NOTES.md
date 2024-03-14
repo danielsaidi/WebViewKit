@@ -1,5 +1,14 @@
 # Release notes
 
+WebViewKit will use semver after 1.0.
+
+
+
+## 0.4
+
+This version adds support for visionOS.
+
+
 
 ## 0.3
 
