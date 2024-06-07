@@ -10,19 +10,18 @@
 import SwiftUI
 import SafariServices
 
-/**
- This view wraps a `SFSafariViewController` that can request
- any url you provide it with.
- 
- Unlike ``WebView``, this view adds a navigation bar topmost
- and a toolbar bottommost. These bars can be used to dismiss
- the view, change size, navigate, share etc.
- 
- When you create this view, you can provide it with a url, a
- Safari config and an optional controller configuration that
- can be used to configure the created controller instance.
- */
-
+/// This view wraps an `SFSafariViewController` and can load
+/// any url you provide it with.
+///
+/// Unlike a ``WebView``, which just renders the web content,
+/// this view has a topmost navigation bar plus a bottommost
+/// toolbar with additional controls.
+///
+/// When you create an instance of the view, you can provide
+/// it with a `url`, a `SFSafariViewController.Configuration`
+/// that's injected into the initializer, plus an additional
+/// `SFSafariViewController`-based configuration block, that
+/// can be used to configure the created instance.
 public struct SafariWebView: UIViewControllerRepresentable {
     
     /// Create a Safari web view.

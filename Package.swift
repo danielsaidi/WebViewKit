@@ -15,11 +15,12 @@ let package = Package(
             targets: ["WebViewKit"]
         )
     ],
-    dependencies: [],
     targets: [
         .target(
             name: "WebViewKit",
-            dependencies: []
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]
         ),
         .testTarget(
             name: "WebViewKitTests",

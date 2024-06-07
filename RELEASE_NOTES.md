@@ -4,6 +4,12 @@ WebViewKit will use semver after 1.0.
 
 
 
+## 0.4.1
+
+This version adds support for strict concurrency.
+
+
+
 ## 0.4
 
 This version adds support for visionOS.

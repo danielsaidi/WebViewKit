@@ -16,20 +16,17 @@ typealias WebViewRepresentable = NSViewRepresentable
 import SwiftUI
 import WebKit
 
-/**
- This view wraps a `WKWebView` that can request any URL that
- you provide it with.
- 
- This URL can refer to both online web pages and local files.
- 
- When you create this view, you can provide it with a custom
- WKWebView configuration, and a configuration block that can
- configure the created `WKWebView` instance.
- 
- If you provide a nil initializer `url`, you must load a url
- into the `WKWebView` in the view configuration function. If
- you don't, the view won't show any content.
- */
+/// This view wraps a `WKWebView` and can load any URLs that
+/// you provide it with, both local and online ones.
+///
+/// When you create an instance of the view, you can provide
+/// it with a `WKWebViewConfiguration` that is injected into
+/// the web view initializer, as well as an a
+///
+/// When you create an instance of the view, you can provide
+/// it with a `url`, a `WKWebViewConfiguration` that will be
+/// injected into the initializer, plus an `WKWebView`-based
+/// configuration block to configure the created instance.
 public struct WebView: WebViewRepresentable {
     
     /// Create a web view.
@@ -113,6 +110,7 @@ public struct WebView: WebViewRepresentable {
     #endif
 }
 
+@MainActor
 private extension WebView {
 
     func makeWebView() -> WKWebView {
