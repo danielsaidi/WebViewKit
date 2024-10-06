@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		A913480127F65C6100DCBB5F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91347EF27F65C6000DCBB5F /* ContentView.swift */; };
 		A913480227F65C6100DCBB5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91347F027F65C6100DCBB5F /* Assets.xcassets */; };
 		A913480327F65C6100DCBB5F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91347F027F65C6100DCBB5F /* Assets.xcassets */; };
+		A9578C202CB2B793008F777C /* WebViewKit in Frameworks */ = {isa = PBXBuildFile; productRef = A9578C1F2CB2B793008F777C /* WebViewKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +25,6 @@
 		A91347F527F65C6100DCBB5F /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91347FB27F65C6100DCBB5F /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91347FD27F65C6100DCBB5F /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		A913480D27F65CDD00DCBB5F /* webviewkit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = webviewkit; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +33,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A90FB9EE27F65D0600D05AA1 /* WebViewKit in Frameworks */,
+				A9578C202CB2B793008F777C /* WebViewKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -57,7 +58,6 @@
 		A91347E827F65C6000DCBB5F = {
 			isa = PBXGroup;
 			children = (
-				A913480C27F65CDD00DCBB5F /* Packages */,
 				A91347ED27F65C6000DCBB5F /* Shared */,
 				A91347FC27F65C6100DCBB5F /* macOS */,
 				A91347F627F65C6100DCBB5F /* Products */,
@@ -92,14 +92,6 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
-		A913480C27F65CDD00DCBB5F /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				A913480D27F65CDD00DCBB5F /* webviewkit */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -118,6 +110,7 @@
 			name = "Demo (iOS)";
 			packageProductDependencies = (
 				A90FB9ED27F65D0600D05AA1 /* WebViewKit */,
+				A9578C1F2CB2B793008F777C /* WebViewKit */,
 			);
 			productName = "Demo (iOS)";
 			productReference = A91347F527F65C6100DCBB5F /* Demo.app */;
@@ -171,6 +164,9 @@
 				Base,
 			);
 			mainGroup = A91347E827F65C6000DCBB5F;
+			packageReferences = (
+				A9578C1E2CB2B793008F777C /* XCLocalSwiftPackageReference "../../webviewkit" */,
+			);
 			productRefGroup = A91347F627F65C6100DCBB5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -486,12 +482,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		A9578C1E2CB2B793008F777C /* XCLocalSwiftPackageReference "../../webviewkit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../webviewkit;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		A90FB9ED27F65D0600D05AA1 /* WebViewKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WebViewKit;
 		};
 		A90FB9EF27F65D0A00D05AA1 /* WebViewKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = WebViewKit;
+		};
+		A9578C1F2CB2B793008F777C /* WebViewKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = WebViewKit;
 		};

@@ -12,11 +12,25 @@ import WebViewKit
 struct ContentView: View {
 
     let url = URL(string: "https://apple.com")
-    
+
+    enum BrowserType {
+        case regular, safari
+    }
+
+    @State
+    var browserType = BrowserType.regular
+
     var body: some View {
         #if os(iOS)
         NavigationView {
-            webView.ignoresSafeArea(edges: .bottom)
+            browser
+                .ignoresSafeArea(edges: .bottom)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        picker
+                    }
+                }
         }
         #else
         webView
@@ -25,7 +39,24 @@ struct ContentView: View {
 }
 
 private extension ContentView {
-    
+
+    @ViewBuilder
+    var browser: some View {
+        switch browserType {
+        case .regular: webView
+        case .safari: safariWebView
+        }
+    }
+
+    var picker: some View {
+        Picker("Select browser", selection: $browserType) {
+            Text("WebView").tag(BrowserType.regular)
+            Text("Safari").tag(BrowserType.safari)
+        }
+        .padding(.horizontal)
+        .pickerStyle(.segmented)
+    }
+
     #if os(iOS)
     @ViewBuilder
     var safariWebView: some View {
