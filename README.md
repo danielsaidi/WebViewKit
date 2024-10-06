@@ -1,10 +1,10 @@
 <p align="center">
-    <img src ="Resources/Logo_GitHub.png" alt="WebViewKit Logo" title="WebViewKit" />
+    <img src ="Resources/Logo_Rounded.png" alt="WebViewKit Logo" title="WebViewKit" />
 </p>
 
 <p align="center">
     <img src="https://img.shields.io/github/v/release/danielsaidi/WebViewKit?color=%2300550&sort=semver" alt="Version" />
-    <img src="https://img.shields.io/badge/Swift-5.9-orange.svg" alt="Swift 5.9" title="Version" />
+    <img src="https://img.shields.io/badge/Swift-6.0-orange.svg" alt="Swift 6.0" title="Version" />
     <img src="https://img.shields.io/badge/platform-SwiftUI-blue.svg" alt="Swift UI" title="Swift UI" />
     <img src="https://img.shields.io/github/license/danielsaidi/WebViewKit" alt="MIT License" title="MIT License" />
         <a href="https://twitter.com/danielsaidi">
@@ -19,15 +19,13 @@
 
 ## About WebViewKit
 
-WebViewKit is a Swift SDK that adds a `WebView` and a `SafariWebView` to `SwiftUI`.
-
-The web view can be used to display web sites in your apps, for instance like this:
+WebViewKit is a SwiftUI SDK that adds a `WebView` and a `SafariWebView` to `SwiftUI`, that can be used to embed web content and present web sites in your apps:
 
 <p align="center" style="border-radius: 80px; outline: 4px solid white; outline-offset: -4px">
     <img src ="Resources/Demo.gif" width="300" />
 </p>
 
-The ``WebView`` can load any url and be configured to fit your needs. There's also a ``SafariWebView`` for more basic needs.
+The ``WebView`` component supports iOS, macOS, & visionOS, and can be configured to fit your needs, while the iOS exclusive ``SafariWebView`` can be used for more basic needs and a more browser-like experience.
 
 
 
@@ -57,21 +55,19 @@ struct MyView {
 }
 ```
 
-The URL can point to any regular web site, but also to local web pages in your app bundle. There's also an iOS only ``SafariWebView``, which has less configuration support and standard toolbars surrounding the web browser.
-
-For more information, please see the [getting started guide][Getting-Started].
+See the online [getting started guide][Getting-Started] for more information.
 
 
 
 ## Documentation
 
-The [online documentation][Documentation] has more information, articles, code examples, etc.
+The online [documentation][Documentation] has more information, articles, code examples, etc.
 
 
 
 ## Demo Application
 
-The demo app lets you explore the library. To try it out, just open and run the `Demo` project.
+The `Demo` folder has an app that lets you explore the library.
 
 
 
