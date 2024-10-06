@@ -4,6 +4,12 @@ WebViewKit will use semver after 1.0.
 
 
 
+## 0.5
+
+This version makes WebViewKit use Swift 6.
+
+
+
 ## 0.4.1
 
 This version adds support for strict concurrency.
