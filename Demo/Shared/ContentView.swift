@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import WebKit
 import WebViewKit
 
 struct ContentView: View {
@@ -19,16 +20,27 @@ struct ContentView: View {
 
     @State
     var browserType = BrowserType.regular
+    
+    @State
+    var webViewInstance: WKWebView?
 
     var body: some View {
         #if os(iOS)
-        NavigationView {
+        NavigationStack {
             browser
                 .ignoresSafeArea(edges: .bottom)
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         picker
+                  
+                    }
+                    if browserType == .regular {
+                        ToolbarItem(placement: .bottomBar) {
+                            Button("Print Current URL") {
+                                print(webViewInstance?.url?.absoluteString ?? "N/A")
+                            }
+                        }
                     }
                 }
         }
@@ -72,6 +84,7 @@ private extension ContentView {
     
     var webView: some View {
         WebView(url: url) { webView in
+            webViewInstance = webView
             // Configure the web view in any way you like
             // For instance, let's set a custom user agent.
             webView.customUserAgent = "foo bar"
