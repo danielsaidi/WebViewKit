@@ -99,6 +99,18 @@ struct ContentView: View {
 
 If you provide a nil initializer `url`, you must load a url into the `WKWebView` in the view configuration, for the view to load a web page.
 
+If you grab hold of the `WKWebView`, you can use it to evaluate JavaScscript, for instance:
+
+```swift
+webView.evaluateJavaScript("document.getElementById('someElement').innerText") { (result, error) in
+    if error == nil {
+        print(result)
+    }
+}
+```
+
+This means that you can parse and manipulate the DOM, inject scripts, etc.
+
 
 ## SafariWebView
 

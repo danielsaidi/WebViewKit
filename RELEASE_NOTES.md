@@ -4,6 +4,12 @@ WebViewKit will use semver after 1.0.
 
 
 
+## 1.0
+
+This version bump is just an indication that WebViewKit is production ready and will honor semantic versioning from now on.
+
+
+
 ## 0.5
 
 This version makes WebViewKit use Swift 6.
