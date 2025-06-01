@@ -23,6 +23,11 @@ https://github.com/danielsaidi/WebViewKit.git
 ```
 
 
+## Support My Work
+
+You can [become a sponsor][Sponsors] to help me dedicate more time on my various [open-source tools][OpenSource]. Every contribution, no matter the size, makes a real difference in keeping these tools free and actively developed.
+
+
 
 ## Getting started
 
@@ -52,3 +57,11 @@ WebViewKit is available under the MIT license.
 
 - ``SafariWebView``
 - ``WebView``
+
+
+
+[Email]: mailto:daniel.saidi@gmail.com
+[Website]: https://danielsaidi.com
+[GitHub]: https://github.com/danielsaidi
+[OpenSource]: https://danielsaidi.com/opensource
+[Sponsors]: https://github.com/sponsors/danielsaidi
