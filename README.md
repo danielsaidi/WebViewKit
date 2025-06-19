@@ -15,20 +15,16 @@
 
 # WebViewKit
 
-WebViewKit is a SwiftUI library that adds a `WebView` and a `SafariWebView` that can present web sites in any app:
+WebViewKit is a SwiftUI library that has a custom `WebView` that can be used in iOS 14, macOS 11 & visionOS 1.
 
 <p align="center">
     <img src ="Resources/Demo.gif" width="300" />
 </p>
 
-The ``WebView`` component supports iOS, macOS, & visionOS, and can be configured to fit your needs, while the iOS exclusive ``SafariWebView`` can be used for more basic needs and a more browser-like experience.
+The ``WebView`` component can be configured to fit your needs, while the iOS exclusive ``SafariWebView`` can be used for more basic needs and a more browser-like experience.
 
-
-## ‼️ Important Information
-
-WWDC 25 introduced a native `WebView` component for iOS, macOS, and visionOS, as described [in this blog post](https://danielsaidi.com/blog/2025/06/10/webview-is-finally-coming-to-swiftui). 
-
-With this addition, this package is no longer needed. It will remain a public archive until iOS 27, then be removed.
+> [!NOTE]  
+> Since iOS 26, macOS 26, and visionOS 26 get a native `WebView`, this library is only kept for polyfill purposes.
 
 
 
